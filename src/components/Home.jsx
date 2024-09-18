@@ -5,7 +5,7 @@ import Card from './Card';
 
 const Home = ({ marketplace, account }) => {
   useEffect(() => {
-    document.title = "Home";
+    document.title = "All buildings";
   }, []);
 
   const [loading, setLoading] = useState(false);
@@ -13,7 +13,7 @@ const Home = ({ marketplace, account }) => {
 
   const loadMarketplaceItems = async () => {
 
-    console.log("Insside  of Load MarketPlace Items");
+    console.log("Inside  of Load MarketPlace Items");
     try {
       console.log(marketplace);
 
@@ -21,18 +21,18 @@ const Home = ({ marketplace, account }) => {
       const itemCount = itemCounts.toString();
       console.log("Itemcount App", itemCount);
       let displayItems = [];
-      console.log("Before for");
+      // console.log("Before for");
       const fetchedBuildings = await marketplace.allBuildings().call();
-      console.log(fetchedBuildings);
+      // console.log(fetchedBuildings);
       for (let i = 0; i < itemCount; i++) {
         // const item = await marketplace.items(i).call();
         const item = fetchedBuildings[i]
         const owner = item.lister;
         const apartmentsOwned = Number(item.apartmentsOwned)
         const price = Number(item.apartmentPrice)
-        console.log(price);
+        // console.log(price);
         
-        console.log("item: ", item);
+        // console.log("item: ", item);
         if (!item.soldOut) {
           // console.log();
           const uri = await item.ipfsHash
@@ -47,8 +47,8 @@ const Home = ({ marketplace, account }) => {
           displayItems.push(metadata)
         }
       }
-      setLoading(false);
       setItems(displayItems);
+      setLoading(false);
 
     } catch (error) {
       console.log(error)

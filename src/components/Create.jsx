@@ -19,7 +19,7 @@ const Create = ({ marketplace }) => {
   const tronWeb = tron.tronWeb;
 
   useEffect(() => {
-    document.title = "Create"
+    document.title = "List building"
   }, []);
 
   const handleChange = (event) => {
@@ -176,7 +176,7 @@ const Create = ({ marketplace }) => {
     (
       <div className="min-h-screen flex justify-center items-center">
         <main className="container mx-auto px-4">
-          <div className="content text-white shadow-lg rounded-lg border-2 p-5 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600">
+          <div className="content text-white shadow-lg rounded-lg border-2 p-4 px-5 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600" style={{marginTop: "120px"}}>
             <div className="space-y-8">
               <Row className="g-4">
                 <Form.Group>

@@ -13,6 +13,9 @@ function OwnedApartments() {
     window.location.href = "/";
     // Add any other actions you want to perform here
   };
+  useEffect(() => {
+    document.title = "Owned apartments"
+  }, []);
 
   const getMyApartments = async() => {
     const tron = window.tronLink;
@@ -48,23 +51,25 @@ function OwnedApartments() {
   },[])
 
   if (loading) return (
-    <main style={{ padding: "1rem 0" }}>
+    <main style={{ padding: "1rem 0" }} className='min-h-screen'>
       <h2 className='text-white font-bold pt-24 text-2xl text-center mt-20'>Loading...</h2>
     </main>
   )
 
   return (
-    <div className='flex flex-wrap gradient-bg-welcome gap-10 justify-center pt-24 pb-5 px-16'>
-      {
-        (buildings.length > 0 ?
-          buildings.map((item) => (
-            <DisplayCard item={item}/>
-          ))
-          : (
-            <main style={{ padding: "1rem 0", marginTop:"20px" }}>
-              <h2 className='text-white'>No apartments bought</h2>
-            </main>
-          ))}
+    <div className='flex flex-wrap gradient-bg-welcome gap-10 justify-center pt-24 pb-5 px-16 min-h-screen'>
+      <div className="h-auto">
+        {
+          (buildings.length > 0 ?
+            buildings.map((item) => (
+              <DisplayCard item={item}/>
+            ))
+            : (
+              <main style={{ padding: "1rem 0", marginTop:"20px" }}>
+                <h2 className='text-white'>No apartments bought</h2>
+              </main>
+            ))}
+      </div>
     </div>
   )
 }

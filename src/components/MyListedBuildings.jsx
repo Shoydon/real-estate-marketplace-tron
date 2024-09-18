@@ -15,6 +15,9 @@ function MyBuildings() {
     window.location.href = "/";
     // Add any other actions you want to perform here
   };
+  useEffect(() => {
+    document.title = "My buildings"
+  }, []);
 
   const getMyBuildings = async () => {
     console.log("loading my buildings");
@@ -56,13 +59,14 @@ function MyBuildings() {
 
 
   if (loading) return (
-    <main style={{ padding: "1rem 0" }}>
+    <main style={{ padding: "1rem 0" }} className='min-h-screen'>
       <h2 className='text-white font-bold pt-24 text-2xl text-center'>Loading...</h2>
     </main>
   )
 
   return (
-    <div className='flex flex-wrap gradient-bg-welcome gap-10 justify-center pt-24 pb-5 px-16'>
+    <div className='flex flex-wrap gradient-bg-welcome gap-10 justify-center pt-24 pb-5 px-16 min-h-screen'>
+      <div className="h-auto">
       {
         (buildings.length > 0 ?
           buildings.map((item) => (
@@ -73,6 +77,7 @@ function MyBuildings() {
               <h2 className='text-white'>No listed Buildings</h2>
             </main>
           ))}
+      </div>
     </div>
   )
 }
