@@ -15,31 +15,31 @@ function First({ loading }) {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2500,
+        autoplaySpeed: 4000,
     };
 
     return (
         <div className="text-white flex flex-col md:flex-row justify-around items-center pt-15 min-h-screen bg-gray-900">
-            <div className="mb-16 max-w-xl">
+            <div className="mb-16 max-w-xl mx-3">
                 <h1 className="font-semibold text-5xl mb-8">
-                    Create and Watch Video <br />
-                    <span className="font-thin text-sky-400">Video NFTs</span>
+                    Buy and Sell Apartments<br />
+                    <span className="font-thin text-sky-400">Real Estate Marketplace</span>
                 </h1>
                 <Slider {...settings}>
                     <div className="text-xl font-thin">
-                        <span className='text-sky-400 font-bold'>Welcome to VideoTron </span>– the premier platform for digital artistry and innovation in the world of Video NFTs. Dive into an immersive experience where creativity meets blockchain technology, enabling artists and collectors alike to create, showcase, and watch unique video masterpieces.
+                        <span className='text-sky-400 font-bold'>Welcome to Ignitus Networks</span> – your premier destination for buying and selling apartments. Navigate the real estate landscape with ease and confidence, whether you’re a first-time buyer or a seasoned investor.
                     </div>
                     <div className="text-xl font-thin">
-                        <span className='text-sky-400 font-bold'>Create:</span> With our intuitive tools, transform your videos into one-of-a-kind NFTs. Whether it’s a captivating animation, a breathtaking short film, or an engaging motion graphic, your content is minted with a unique digital signature, ensuring authenticity and ownership.
+                        <span className='text-sky-400 font-bold'>Buy:</span> Discover a wide range of apartments that fit your lifestyle and budget. From cozy studios to luxurious penthouses, our user-friendly platform makes it easy to find your dream home in prime locations.
                     </div>
                     <div className="text-xl font-thin">
-                        <span className='text-sky-400 font-bold'>Watch:</span>  Explore a diverse gallery of Video NFTs created by talented artists from around the globe. Experience art in motion like never before, with each piece telling its own story and bringing a new perspective to the digital canvas.
+                        <span className='text-sky-400 font-bold'>Sell:</span> List your property with ease and connect with potential buyers. Our marketing tools and expert guidance ensure your apartment gets the visibility it deserves, helping you achieve the best possible price.
                     </div>
                     <div className="text-xl font-thin">
-                        <span className='text-sky-400 font-bold'>Connect:</span> Join a community of visionary creators and enthusiastic collectors. Participate in discussions, collaborate on projects, and be at the forefront of the Video NFT movement.
+                        <span className='text-sky-400 font-bold'>Explore:</span> Browse comprehensive listings with detailed descriptions and high-quality images. Get all the information you need to make informed decisions about your next real estate investment.
                     </div>
                     <div className="text-xl font-thin">
-                        <span className='text-sky-400 font-bold'>VideoTron</span>   is more than a platform; it’s a revolution in the digital art space. Unleash your creativity, discover extraordinary art, and be part of the future of video expression today.
+                        <span className='text-sky-400 font-bold'>Ignitus Networks</span>  is more than a platform; it’s a revolution in the real estate space. List your property and be part of the future of real estate today.
                     </div>
                 </Slider>
             </div>
