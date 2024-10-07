@@ -6,6 +6,9 @@ import contractData from '../contract.json'
 function Card({ item, idx, account }) {
 
   const [apartmentCount, setApartmentCount] = useState(0); // Initial apartment count
+  const tron = window.tronLink;
+  const tronweb = tron.tronWeb;
+  const addr = tronweb.defaultAddress.hex;
 
   const handleApartmentChange = (event) => {
     const newCount = parseInt(event.target.value);
@@ -20,6 +23,12 @@ function Card({ item, idx, account }) {
         position: "top-center"
       });
       return
+    }    
+    
+    if(item.owner === account) {
+      toast.info("Cannot buy own apartment", {
+        position: "top-center"
+      })
     }
     toast.info(`Buying ${apartmentCount} apartments`, {
       position: "top-center"
@@ -47,7 +56,7 @@ function Card({ item, idx, account }) {
       
     } catch (error) {
       console.log(error);
-      toast.error("Some error occured while buying", {
+      toast.error(error, {
         position: "top-center"
       })
     }
@@ -85,8 +94,9 @@ function Card({ item, idx, account }) {
             onChange={handleApartmentChange}
           />
         </div>
+
         {console.log("acc: ", account, " owner: ", item.owner)}
-        {account !== item.owner && <button className="mt-4 w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-transform transform duration-300 bg-gradient-to-r from-blue-500 to-purple-600 border border-transparent rounded-lg shadow-lg hover:scale-105 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-300" onClick={buyMarketItem}>
+        {addr !== item.owner && <button className="mt-4 w-full px-4 py-2 text-sm font-medium leading-5 text-white transition-transform transform duration-300 bg-gradient-to-r from-blue-500 to-purple-600 border border-transparent rounded-lg shadow-lg hover:scale-105 hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-300" onClick={buyMarketItem} disabled={item.owner === addr}>
           Buy
           <svg
             className="rtl:rotate-180 w-4 h-4 inline-block ml-2 -mt-px"

@@ -7,8 +7,9 @@ import { toast } from 'react-toastify'
 
 const Create = ({ marketplace }) => {
 
+  const [processing, setProcessing] = useState(false);
+
   const [nftimage, setNFTImage] = useState();
-  // const [videoFile, setVideoFile] = useState();
   const [forminfo, setFormInfo] = useState({
     title: "",
     description: "",
@@ -49,6 +50,7 @@ const Create = ({ marketplace }) => {
       });
       return
     }
+    setProcessing(true)
     console.log(nftimage)
     console.log(forminfo);
 
@@ -84,18 +86,6 @@ const Create = ({ marketplace }) => {
 
       const ImgHash = `https://gateway.pinata.cloud/ipfs/${resFile.data.IpfsHash}`;
 
-      // Upload video
-      // const formDataVideo = new FormData();
-      // formDataVideo.append("file", videoFile);
-      // const resVideo = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formDataVideo, {
-      //   headers: {
-      //     pinata_api_key: `18475aac732291be8c7c`,
-      //     pinata_secret_api_key: `4593b2a9ce8fd83a816bd16971d4454828f291374549874739250f5d95128009`,
-      //     "Content-Type": "multipart/form-data",
-      //   },
-      // });
-      // const videoHash = `https://gateway.pinata.cloud/ipfs/${resVideo.data.IpfsHash}`;
-
       const info = {
         name: forminfo.title,
         description: forminfo.description,
@@ -126,20 +116,11 @@ const Create = ({ marketplace }) => {
 
       pinJSONToPinata(info)
 
-      //   setFormInfo({
-      //       title:"",
-      //       description:"",
-      //       price:""
-
-      //   })
-      //   setNFTImage(null);
-
     } catch (error) {
       console.log(error);
     }
 
-
-
+    setProcessing(false)
   };
 
   const mintThenList = async (uri, price) => {
@@ -189,17 +170,6 @@ const Create = ({ marketplace }) => {
                     onChange={(event) => changeHandler(event, 'image')}
                   />
                 </Form.Group>
-                {/* <Form.Group>
-                  <Form.Label className="text-lg">Upload Video</Form.Label>
-                  <Form.Control
-                    type="file"
-                    required
-                    name="video"
-                    accept="video/*" // Only accept video files
-                    onChange={(event) => changeHandler(event, 'video')}
-                  />
-                  </Form.Group> */}
-                {/* <Form.Label className="text-lg">Building Name</Form.Label> */}
                 <Form.Control
                   onChange={handleChange}
                   name="title"
@@ -241,8 +211,8 @@ const Create = ({ marketplace }) => {
                   className="text-lg"
                 />
                 <div className="flex justify-center">
-                  <Button onClick={handleEvent} variant="primary" size="lg">
-                    Create NFT!
+                  <Button onClick={handleEvent} variant="primary" size="lg" disabled={processing}>
+                    List Building!
                   </Button>
                 </div>
               </Row>

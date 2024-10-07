@@ -58,7 +58,7 @@ function OwnedApartments() {
 
   return (
     <div className='flex flex-wrap gradient-bg-welcome gap-10 justify-center pt-24 pb-5 px-16 min-h-screen'>
-      <div className="h-auto">
+      <div className="flex flex-wrap justify-evenly gap-10">
         {
           (buildings.length > 0 ?
             buildings.map((item) => (

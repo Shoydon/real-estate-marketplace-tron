@@ -27,7 +27,7 @@ function Nav({ account, checkTronLink,loading }) {
                   <li>My owned apartments</li></Link>
               </ul>
 
-              <div class="hidden xl:flex space-x-5 items-center">
+              <div class="xl:flex space-x-5 items-center">
                 {loading ? (
                   <button type='button' class="inline-flex items-center justify-center border-[0.5px] p-2 w-22  h-9 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-hamburger" aria-expanded="false" onClick={checkTronLink}>Connect wallet</button>
                 ):(

@@ -43,11 +43,11 @@ function App() {
     
 
         try {
-          const tron = await window.tronLink;
-          const tronWeb = await tron.tronWeb;
+          const tron = window.tronLink;
+          const tronWeb = tron.tronWeb;
           console.log("This is ACC", acc);
           setFirstTime(true);
-          // const publicAddress = tronWeb.defaultAddress.base58
+          // const publicAddress = tronWeb.defaultAddress.hex
           // console.log("This is owner publicAddress",publicAddress);
           setAccount(acc);
           setFirstTime(true);
