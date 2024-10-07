@@ -6,8 +6,7 @@ import contractData from '../contract.json'
 function ListedCard({ item, idx }) {
 
   return (
-      <div key={idx} className="bg-gray-100 rounded-lg shadow-md dark:bg-gray-800 mt-10">
-        {/* {console.log(item)} */}
+    <div key={idx} className="bg-gray-100 rounded-lg shadow-md dark:bg-gray-800 mt-10 h-96">
         {console.log(item)}
       <img
         className="rounded-t-lg object-cover w-full h-56"
